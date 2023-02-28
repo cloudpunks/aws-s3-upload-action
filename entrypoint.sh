@@ -1,19 +1,22 @@
 #!/bin/ash
 
+e() {
+    echo $1
+    exit 255
+}
+
 test -d "$INPUT_SOURCE" -o \
      -f "$INPUT_SOURCE" || \
-     echo "'$INPUT_SOURCE' does not exist inside your repository" && \
-     exit 255
+    e "'$INPUT_SOURCE' does not exist inside your repository"
 
 test -z "$INPUT_AWS_ACCESS_KEY" -o \
      -z "$INPUT_AWS_SECRET_KEY" -o \
      -z "$INPUT_AWS_REGION" -o \
      -z "$INPUT_AWS_BUCKET" && \
-     echo "access_key, secret_key, region or bucket missing or empty" && \
-     exit 255
+    e "access_key, secret_key, region or bucket missing or empty"
 
 export AWS_ACCESS_KEY_ID="$INPUT_AWS_ACCESS_KEY"
-export AWS_SECERET_ACCESS_KEY="$INPUT_AWS_SECRET_KEY"
+export AWS_SECRET_ACCESS_KEY="$INPUT_AWS_SECRET_KEY"
 export AWS_REGION="$INPUT_AWS_REGION"
 
 set -e
