@@ -1,5 +1,7 @@
 #!/bin/ash
 
+set -x
+
 e() {
     echo $1
     exit 255
