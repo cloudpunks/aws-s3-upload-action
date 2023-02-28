@@ -24,7 +24,7 @@ set -e
 if [ "$INPUT_COPY_METHOD" == "copy" ]; then
     aws s3 cp $INPUT_SOURCE s3://$INPUT_AWS_BUCKET/$INPUT_DESTINATION
 elif [ "$INPUT_COPY_METHOD" == "sync" ]; then
-    if [ "$INPUT_COPY_DELETE" == "true" ]; then
+    if [ "$INPUT_COPY_DELETE" == "yes" ]; then
         aws s3 sync --delete $INPUT_SOURCE s3://$INPUT_AWS_BUCKET/$INPUT_DESTINATION
     else
         aws s3 sync $INPUT_SOURCE s3://$INPUT_AWS_BUCKET/$INPUT_DESTINATION

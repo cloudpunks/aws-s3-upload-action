@@ -24,14 +24,14 @@ inputs:
   copy_delete:
     description: "copy file in bucket that are not inside of 'source_dir' (default: false)"
     required: false
-    default: false
+    default: no
   source:
     description: "source directory or file inside your repository which you want to copy"
     required: true
   destination:
-    description: "destination directory inside the bucket (default: .)"
+    description: "destination directory inside the bucket (default: '')"
     required: false
-    default: .
+    default: ""
 runs:
   using: 'docker'
   image: 'Dockerfile'

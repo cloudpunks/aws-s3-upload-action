@@ -10,9 +10,9 @@ this action uses the following inputs (all are required):
 | aws_region     | yes      |         | AWS Region                                                                               |
 | aws_bucket     | yes      |         | AWS Bucket                                                                               |
 | copy_method    | no       | sync    | copy method. Can be 'copy' or 'sync'. Copy = normal copy, sync behaves like rsync        |
-| copy_delete    | no       | false   | delete files not in your repository? only for method=sync. behaves like `rsync --delete` |
+| copy_delete    | no       | no      | delete files not in your repository? only for method=sync. behaves like `rsync --delete` |
 | source         | yes      |         | source directory or file inside your repository                                          |
-| destionation   | no       | .       | destination directory inside your bucket                                                 |
+| destionation   | no       |         | destination directory inside your bucket                                                 |
 
 ## example usage
 ```yaml
