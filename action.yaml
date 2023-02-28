@@ -1,0 +1,37 @@
+name: aws-s3-upload-action
+author: airbone95 <airbone95@users.noreply.github.com>
+description: upload files to an aws s3 bucket
+branding:
+  icon: 'cloud'
+  color: 'blue'
+inputs:
+  aws_access_key:
+    description: aws access key
+    required: true
+  aws_secret_key:
+    description: aws secret key
+    required: true
+  aws_region:
+    description: aws region
+    required: true
+  aws_bucket:
+    description: aws bucket name
+    required: true
+  copy_method:
+    description: "method how you want to copy your files. can be 'copy' or 'sync' (default: sync)"
+    required: false
+    default: sync
+  copy_delete:
+    description: "copy file in bucket that are not inside of 'source_dir' (default: false)"
+    required: false
+    default: false
+  source:
+    description: "source directory or file inside your repository which you want to copy"
+    required: true
+  destination:
+    description: "destination directory inside the bucket (default: .)"
+    required: false
+    default: .
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
