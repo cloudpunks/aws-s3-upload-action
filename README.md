@@ -16,14 +16,13 @@ this action uses the following inputs (all are required):
 
 ## example usage
 ```yaml
-- uses: cloudpunks/aws-s3-upload-action@v0.1
+- uses: cloudpunks/aws-s3-upload-action@v0.0.2
   with:
     aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
     aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
     aws_region: 'eu-central-1'
     aws_bucket: ${{ var.AWS_BUCKET }}
     copy_method: sync
-    copy_delete: true
+    copy_delete: yes
     source: assets/
-    destionation: .
 ```
